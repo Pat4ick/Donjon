@@ -18,16 +18,11 @@ namespace Donjon
                 var game = new Game();
                 game.run();
                 Console.WriteLine("Another game?");
-                var keyInfo = Console.ReadKey(); //
-                var key = keyInfo.Key;
-                if (key == ConsoleKey.Y)
-                {
-                    playAgain = true;
-                }
-                else
-                {
-                    playAgain = false;
-                }
+                
+                var key = Console.ReadKey(intercept: true).Key; // Visa vad den representerar
+
+                playAgain = (key == ConsoleKey.Y);
+
             } while (playAgain);
         }
     }
