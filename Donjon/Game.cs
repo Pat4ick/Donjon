@@ -4,6 +4,9 @@ namespace Donjon
 {
     internal class Game
     {
+        private Map map;
+        private Hero hero;
+
         public Game()
         {
 
@@ -25,9 +28,12 @@ namespace Donjon
                     case ConsoleKey.RightArrow: MoveHero(); break;
                     default: break;
                 }
+                Draw();
+                // Game actions
+                
 
             } while (gameInProgress);
-
+            Draw();
             Console.WriteLine("Game Over");
         }
 
@@ -43,6 +49,8 @@ namespace Donjon
 
         private void init()
         {
+            map = new Map(10, 10); // Lagra som field
+            hero = new Hero();
             throw new NotImplementedException();
         }
     }
