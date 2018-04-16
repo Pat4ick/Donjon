@@ -14,7 +14,7 @@ namespace Donjon
 
         internal void run()
         {
-            init(); // Could be in construcor
+            Init(); // Could be in construcor
             bool gameInProgress = false;
             do
             {
@@ -44,14 +44,24 @@ namespace Donjon
 
         private void Draw()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            for (int y = 0; y < map.Height; y++)
+            {
+                for (int x = 0; x < map.Width; x++)
+                {
+                    var cell = map.Cell(x, y);
+                    Console.Write(' ' + cell.Symbol );
+                }
+                Console.WriteLine();
+            }
+            
         }
 
-        private void init()
+        private void Init()
         {
             map = new Map(10, 10); // Lagra som field
             hero = new Hero();
-            throw new NotImplementedException();
+            
         }
     }
 }
